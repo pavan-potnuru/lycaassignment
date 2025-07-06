@@ -1,7 +1,7 @@
 import os
 
 from src.dataloader.dataloader import load_csvs_to_sqlite
-from src.query_engine.query_executor import run_sql
+from src.queries.query_executor import run_sql
 from src.llm.llm import generate_sql_query, generate_final_response
 
 
