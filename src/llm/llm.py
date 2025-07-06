@@ -11,23 +11,23 @@ def generate_sql_query(question):
     - sample_revenue_large: country, channel, date, revenue, net_revenue
 
     Your task is to generate an SQLite-compatible SQL query to answer the user question.
+    If time related queries are asked, fetch todays date and then calculate accordingly.
     Think step by step and then formulate the query. Do not add any comments in the query.
-    Generate queries using builtin functions of SQLite.
+    Generate queries using only builtin functions of SQLite.
     Maintain consistency in your query generation pattern and generate as simple query as possible for a given question.
-    If the query cannot be answered from the available datasets, just respond with "Query out of available data range."
-    User Question: {question}"""
-    print("Generating SQL query....\n")
+    If the query cannot be answered from the available datasets, just respond with "Question out of available data range."
+    Generate the response which contains reasoning step by step and a query in the following format:
+    {{"Reasoning": ..., "Query": ...}}
+    User Question: {question}
+    """
+    #print("Generating SQL query....\n")
     response = client.chat.completions.create(
         model = "gpt-4o",
         messages = [{"role":"user","content":prompt}],
     )
     return response.choices[0].message.content
 
-def extract_sql_query(response):
-    if response == "Query out of available data range.":
-        return 0
-    else:
-        return response.split("```")[1][4:]
+
 
 def generate_final_response(question,answer):
     client = OpenAI()

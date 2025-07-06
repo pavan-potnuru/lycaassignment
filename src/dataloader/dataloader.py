@@ -4,7 +4,7 @@ import os
 
 def load_csvs_to_sqlite(db_path):
     try:
-        print("Please wait while we load the data into database...")
+        print("Please wait while we load the data into database...\n")
         
         conn = sqlite3.connect(db_path)
         # Load each CSV
@@ -17,7 +17,7 @@ def load_csvs_to_sqlite(db_path):
         rev_df = pd.read_csv(os.path.abspath('../lycaassignment/data/sample_revenue_large.csv'))
         rev_df.to_sql('sample_revenue_large', conn, if_exists='replace', index=False)
 
-        print("Data loaded successfully to Database ...!")
+        print("Data loaded successfully to Database ...!\n")
     except FileNotFoundError as e:
         print(f"Error while loading data: {e}")
     except Exception as e:
