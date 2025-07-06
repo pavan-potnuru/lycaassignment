@@ -27,11 +27,11 @@ def main():
                 answer=["No info in database, question is either not relavant or there is no enough data to answer the question."]
             else:
                 sql = eval(response)["Query"]
-                print(f"Query Generated: {sql} \n")
+                print(f"Generatede SQL: {sql} \n")
                 print("Executing the SQL query in the Database ...\n")
                 answer = run_sql(db_path=db_path,sql=sql)
                 print("Query Executed successfully... Processing the response...\n")
-            print(generate_final_response(question=question,answer=answer))
+            print(f"Final Answer: {generate_final_response(question=question,answer=answer)}\n")
             print("""If you have any other question, please type, or type "quit" to stop. \n""")
 
 
