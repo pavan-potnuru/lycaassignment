@@ -16,12 +16,18 @@ def generate_sql_query(question):
     Maintain consistency in your query generation pattern and generate as simple query as possible for a given question.
     If the query cannot be answered from the available datasets, just respond with "Query out of available data range."
     User Question: {question}"""
-    print("Generating SQL query....")
+    print("Generating SQL query....\n")
     response = client.chat.completions.create(
         model = "gpt-4o",
         messages = [{"role":"user","content":prompt}],
     )
     return response.choices[0].message.content
+
+def extract_sql_query(response):
+    if response == "Query out of available data range.":
+        return 0
+    else:
+        return response.split("```")[1][4:]
 
 def generate_final_response(question,answer):
     client = OpenAI()
@@ -32,5 +38,5 @@ def generate_final_response(question,answer):
         model = "gpt-4o",
         messages = [{"role":"user","content":response_prompt}],
     )
+    return response.choices[0].message.content
 
-print(generate_sql_query("What’s the correlation between data usage and pay-as-you-go top-ups by country?"))
