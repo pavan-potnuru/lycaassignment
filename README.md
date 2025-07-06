@@ -1,6 +1,8 @@
 # Lyca Assignment
 🧠 AI-powered structured data question answering assistant over your CSV data, powered by OpenAI + SQLite
 
+
+
 ## ✨ Overview
 This project is an AI-powered assistant that can answer natural language questions over structured data stored in three CSV datasets.
 It:
@@ -14,6 +16,8 @@ It:
   -Returns a friendly, conversational answer
 
   -Ideal for analytics teams, quick exploratory analysis, and data dashboards.
+
+
 
 ## ⚙ Setup instructions
 ✅ 1. Clone the repo
@@ -38,6 +42,8 @@ It:
       OPENAI_API_KEY=sk-xxxxx...
   (Replace sk-xxxxx... with your real key)
 
+
+
 ## ▶ How to run
 
   Execute the following command in terminal or command prompt from the root directory of the repo
@@ -50,6 +56,8 @@ It:
 
     Feel free to ask your question or type 'quit' to exit
 Now you can type your questions in natural language!
+
+
 
 ## 🧪 Example queries & outputs
 ### 📌 Example 1
@@ -90,6 +98,8 @@ Now you can type your questions in natural language!
 
     Certainly! In the second quarter, the countries with the highest data usage are BBB, with 37,459 units, followed by DDD with 30,956 units, CCC with 27,030 units, and AAA with 20,812 units.
 
+
+
 ## 🧠 Prompting strategy
   The prompt sent to the LLM guides it to:
 
@@ -104,6 +114,8 @@ Now you can type your questions in natural language!
   -If data is missing → reply "Question out of available data range."
 
 After query execution, another prompt rephrases the raw numbers into a friendly, human-readable response.
+
+
 
 ## 🧑‍💻 Author
 
